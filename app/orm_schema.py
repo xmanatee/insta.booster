@@ -13,12 +13,13 @@ class InstaUser(Base):
     __tablename__ = 'insta_user'
 
     id = Column(Integer, primary_key=True)
-    user_name = Column(String, nullable=True)
+    username = Column(String, nullable=True)
     full_name = Column(String, nullable=True)
 
     followers_count = Column(Integer)
     following_count = Column(Integer)
     media_count = Column(Integer)
+    info_json = Column(String)
 
     # followers_count_deriv = Column(Float, default=0)
     # following_count_deriv = Column(Float, default=0)
@@ -27,9 +28,9 @@ class InstaUser(Base):
     added_on = Column(DateTime, default=func.now())
 
     def __repr__(self):
-        return "<InstaUser(id={id}, user_name={user_name}, full_name={full_name}, followers_count={followers_count}, following_count={following_count}, media_count={media_count})>".format(
+        return "<InstaUser(id={id}, username={username}, full_name={full_name}, followers_count={followers_count}, following_count={following_count}, media_count={media_count})>".format(
             id=self.id,
-            user_name=self.user_name,
+            username=self.username,
             full_name=self.full_name,
             followers_count=self.followers_count,
             following_count=self.following_count,
